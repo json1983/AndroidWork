@@ -12,7 +12,7 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        System.out.println("启动成功");
+       findViewById(R.)
     }
 
 
