@@ -18,9 +18,14 @@ import android.net.ParseException;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -31,9 +36,6 @@ import android.view.View;
 import android.widget.TextView;
 
 public class SplashActivity extends Activity {
-
-	private final class HandlerE extends Handler {
-	}
 
 	/**
 	 * 更新新版本的状态码
@@ -86,20 +88,66 @@ public class SplashActivity extends Activity {
 			}
 		}
 
-		private void enterHome() {
-			// TODO Auto-generated method stub
-			Intent intent = new Intent(this,HomeActivity.class);
-			startActivity(intent);
-			//在开启一个新的界面后,将导航界面关闭(导航界面只可见一次)
-			finish();
-
-		}
-
-		private void showUpdateDialog() {
-			// TODO Auto-generated method stub
-
-		};
 	};
+
+	/**
+	 * 弹出对话框,提示用户更新
+	 */
+	private void showUpdateDialog() {
+		// TODO Auto-generated method stub
+		// 对话框,是依赖于activity存在的
+		Builder builder = new AlertDialog.Builder(this);
+		// 设置左上角图标
+		builder.setIcon(R.drawable.ic_launcher);
+		builder.setTitle("版本更新");
+		// 设置描述内容
+		builder.setMessage(mVersionDes);
+		// 积极按钮,立即更新
+		builder.setPositiveButton("立即更新",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						// 下载apk,apk链接地址,downloadUrl
+						downloadApk();
+
+					}
+				});
+		builder.setNegativeButton("稍后更新", new OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				//取消对话框,进入主界面
+				enterHome();
+			}
+		});
+
+	}
+	/**
+	 * 下载APK
+	 */
+	protected void downloadApk() {
+		// TODO Auto-generated method stub
+		//apk下载链接地址,放置apk的所在路径
+		//1,判断sd卡是否可用,是否挂在上
+		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+			
+		}
+	}
+
+	/**
+	 * 进入应用程序主界面
+	 */
+	protected void enterHome() {
+
+		Intent intent = new Intent(this, HomeActivity.class);
+		startActivity(intent);
+		// 在开启一个新的界面后,将导航界面关闭(导航界面只可见一次)
+		finish();
+
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -206,7 +254,12 @@ public class SplashActivity extends Activity {
 					// 请求网络的时长小于4秒,强制让其睡眠满4秒钟
 					long endTime = System.currentTimeMillis();
 					if (endTime - startTime < 4000) {
-						Thread.sleep(4000 - (endTime - startTime));
+						try {
+							Thread.sleep(4000 - (endTime - startTime));
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					mHandler.sendMessage(msg);
 				}
