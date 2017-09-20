@@ -1,5 +1,6 @@
 package com.itheima.mobilesafe74.activity;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -13,6 +14,10 @@ import org.json.JSONObject;
 import com.itheima.mobilesafe74.R;
 import com.itheima.mobilesafe74.utils.StreamUtil;
 import com.itheima.mobilesafe74.utils.ToastUtil;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
 
 import android.net.ParseException;
 import android.net.Uri;
@@ -119,12 +124,13 @@ public class SplashActivity extends Activity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
-				//取消对话框,进入主界面
+				// 取消对话框,进入主界面
 				enterHome();
 			}
 		});
 
 	}
+
 	/**
 	 * 下载APK
 	 */
@@ -133,9 +139,74 @@ public class SplashActivity extends Activity {
 		//apk下载链接地址,放置apk的所在路径
 		//1,判断sd卡是否可用,是否挂在上
 		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+			//2,获取sd路径
+			String path = Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator
+			+"mobilesafe74.apk";
+			//3,发送请求,获取apk,并且放置到指定路径
+			HttpUtils HttpUtils=new HttpUtils();
+			//4,发送请求,传递参数(下载地址,下载应用放置位置)
+			HttpUtils.download(mDownloadUrl, path, new RequestCallBack<File>() {
+
+				@Override
+				public void onFailure(HttpException arg0, String arg1) {
+					// TODO Auto-generated method stub
+					Log.i(tag, "下载失败");
+					//下载失败
+				}
+
+				@Override
+				public void onSuccess(ResponseInfo<File> responseInfo) {
+					// TODO Auto-generated method stub
+					//下载成功(下载过后的放置在sd卡中apk)
+					Log.i(tag, "下载成功");
+					File file = responseInfo.result;
+					//提示用户安装
+					installApk(file);
+					
+				}
+				@Override
+				public void onStart() {
+					Log.i(tag, "刚刚开始下载");
+					super.onStart();
+				}
+				//下载过程中的方法(下载apk总大小,当前的下载位置,是否正在下载)
+				@Override
+				public void onLoading(long total, long current,
+						boolean isUploading) {
+					// TODO Auto-generated method stub
+					Log.i(tag, "下载中........");
+					Log.i(tag,"当前位置===="+current);
+					Log.i(tag,"总大小===="+total);
+					
+					
+					super.onLoading(total, current, isUploading);
+				}
+				
+			});
 			
 		}
 	}
+	
+	/**
+	 * 安装对应apk
+	 * @param file	安装文件
+	 */
+	protected void installApk(File file) {
+		// TODO Auto-generated method stub
+		//系统应用界面,源码,安装apk入口
+		Intent intent =new Intent("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		//设置安装的类型
+		intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+		startActivityForResult(intent, 0);
+	}
+	//开启一个activity后,返回结果调用的方法
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
 
 	/**
 	 * 进入应用程序主界面
@@ -191,7 +262,7 @@ public class SplashActivity extends Activity {
 				// 1,封装url地址
 
 				try {
-					URL url = new URL("http://10.0.2.2:8080/update74.json");
+					URL url = new URL("https://github.com/json1983/AndroidWork/blob/master/mobilesafe74.json");
 					// 2,开启一个链接
 					HttpURLConnection connection = (HttpURLConnection) url
 							.openConnection();
