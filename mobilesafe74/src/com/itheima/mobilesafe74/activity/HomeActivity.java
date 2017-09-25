@@ -1,6 +1,5 @@
 package com.itheima.mobilesafe74.activity;
 
-
 import com.itheima.mobilesafe74.R;
 
 import android.app.Activity;
@@ -13,5 +12,18 @@ public class HomeActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		initUI();
+		// 初始化数据的方法
+		initData();
+	}
+
+	private void initData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void initUI() {
+		// TODO Auto-generated method stub
+		
 	}
 }
