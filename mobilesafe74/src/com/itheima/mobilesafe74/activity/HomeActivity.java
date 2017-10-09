@@ -5,6 +5,8 @@ import com.itheima.mobilesafe74.utils.ConstantValue;
 import com.itheima.mobilesafe74.utils.SpUtil;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -91,7 +93,15 @@ public class HomeActivity extends Activity {
 	}
 
 	private void showSetPsdDialog() {
-		// TODO Auto-generated method stub
+		//因为需要去自己定义对话框的展示样式,所以需要调用dialog.setView(view);
+				//view是由自己编写的xml转换成的view对象xml----->view
+		 Builder builder = new AlertDialog.Builder(this);
+		 AlertDialog dialog = builder.create();
+		View view = View.inflate(getApplicationContext(), R.layout.dialog_set_psd, null);
+		//让对话框显示一个自己定义的对话框界面效果
+		dialog.setView(view);
+		dialog.show();
+		
 		
 	}
 
