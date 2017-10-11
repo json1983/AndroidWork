@@ -29,6 +29,7 @@
         <activity android:name="com.itheima.mobilesafe74.activity.HomeActivity">
            
         </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.TestActivity"></activity>
     </application>
 
 </manifest>

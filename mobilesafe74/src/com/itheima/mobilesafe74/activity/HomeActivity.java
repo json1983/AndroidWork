@@ -3,6 +3,7 @@ package com.itheima.mobilesafe74.activity;
 import com.itheima.mobilesafe74.R;
 import com.itheima.mobilesafe74.utils.ConstantValue;
 import com.itheima.mobilesafe74.utils.SpUtil;
+import com.itheima.mobilesafe74.utils.ToastUtil;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,10 +12,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -44,65 +48,98 @@ public class HomeActivity extends Activity {
 				R.drawable.home_taskmanager, R.drawable.home_netmanager,
 				R.drawable.home_trojan, R.drawable.home_sysoptimize,
 				R.drawable.home_tools, R.drawable.home_settings };
-		//九宫格控件设置数据适配器(等同ListView数据适配器)
+		// 九宫格控件设置数据适配器(等同ListView数据适配器)
 		gv_home.setAdapter(new MyAdapter());
-		//注册九宫格单个条目点击事件
-		gv_home.setOnItemClickListener(new OnItemClickListener(){
-			//点中列表条目索引position
+		// 注册九宫格单个条目点击事件
+		gv_home.setOnItemClickListener(new OnItemClickListener() {
+			// 点中列表条目索引position
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
 				switch (position) {
 				case 0:
-					//开启对话框
+					// 开启对话框
 					showDialog();
 					break;
 				case 8:
-					System.out.println("position====="+position);
+					System.out.println("position=====" + position);
 					break;
 
-				
 				}
-				
+
 			}
 
-			
-			
-		} );
+		});
 
 	}
 
 	protected void showDialog() {
 		// TODO Auto-generated method stub
-		//判断本地是否有存储密码(sp	字符串)
-		String psd=SpUtil.getString(this, ConstantValue.MOBILE_SAFE_PSD, "");
-		if(TextUtils.isEmpty(psd)){
-			//1,初始设置密码对话框
+		// 判断本地是否有存储密码(sp 字符串)
+		String psd = SpUtil.getString(this, ConstantValue.MOBILE_SAFE_PSD, "");
+		if (TextUtils.isEmpty(psd)) {
+			// 1,初始设置密码对话框
 			showSetPsdDialog();
-		}else{
-			//2,确认密码对话框
+		} else {
+			// 2,确认密码对话框
 			showConfirmPsdDialog();
 		}
-		
+
 	}
 
 	private void showConfirmPsdDialog() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void showSetPsdDialog() {
-		//因为需要去自己定义对话框的展示样式,所以需要调用dialog.setView(view);
-				//view是由自己编写的xml转换成的view对象xml----->view
-		 Builder builder = new AlertDialog.Builder(this);
-		 AlertDialog dialog = builder.create();
-		View view = View.inflate(getApplicationContext(), R.layout.dialog_set_psd, null);
-		//让对话框显示一个自己定义的对话框界面效果
+		// 因为需要去自己定义对话框的展示样式,所以需要调用dialog.setView(view);
+		// view是由自己编写的xml转换成的view对象xml----->view
+		Builder builder = new AlertDialog.Builder(this);
+		final AlertDialog dialog = builder.create();
+		final View view = View.inflate(getApplicationContext(),
+				R.layout.dialog_set_psd, null);
+		// 让对话框显示一个自己定义的对话框界面效果
 		dialog.setView(view);
 		dialog.show();
-		
-		
+		Button bt_submit = (Button) view.findViewById(R.id.bt_submit);
+		Button bt_cancel = (Button) view.findViewById(R.id.bt_cancel);
+		// 点击事件
+		bt_submit.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				EditText et_set_psd = (EditText) view.findViewById(R.id.et_set_psd);
+				EditText et_confirm_psd = (EditText)view.findViewById(R.id.et_confirm_psd);
+				String psd = et_set_psd.getText().toString();
+				String confirmPsd = et_confirm_psd.getText().toString();
+				if(!TextUtils.isEmpty(psd)&&!TextUtils.isEmpty(confirmPsd)){
+					if(psd.equals(confirmPsd)){
+						//两次密码一致
+						System.out.println(psd+"++++++"+confirmPsd+"===========");
+						//进入应用手机防盗模块,开启一个新的activity
+						Intent intent=new Intent(getApplicationContext(),TestActivity.class);
+						startActivity(intent);
+						dialog.dismiss();
+					}else {
+						//两次密码不一致
+					}
+					
+					
+					
+				}else {
+					ToastUtil.show(HomeActivity.this, "请输入密码");
+				}
+				
+				
+				
+			}
+
+		}
+
+		);
+
 	}
 
 	private void initUI() {
@@ -133,14 +170,15 @@ public class HomeActivity extends Activity {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-		
-			View view = View.inflate(getApplicationContext(), R.layout.gridview_item, null);
+
+			View view = View.inflate(getApplicationContext(),
+					R.layout.gridview_item, null);
 			TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
 			ImageView iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
-			
+
 			tv_title.setText(mTitleStrs[position]);
 			iv_icon.setBackgroundResource(mDrawableIds[position]);
-			
+
 			return view;
 		}
 	}
