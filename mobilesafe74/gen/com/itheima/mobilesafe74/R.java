@@ -9,6 +9,30 @@ package com.itheima.mobilesafe74;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desoff=0x7f010001;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int deson=0x7f010002;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int destitle=0x7f010000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -36,16 +60,17 @@ public final class R {
         public static final int one=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f080009;
-        public static final int bt_cancel=0x7f080005;
-        public static final int bt_submit=0x7f080004;
-        public static final int et_confirm_psd=0x7f080003;
-        public static final int et_set_psd=0x7f080006;
+        public static final int action_settings=0x7f08000a;
+        public static final int bt_cancel=0x7f080006;
+        public static final int bt_submit=0x7f080005;
+        public static final int et_confirm_psd=0x7f080004;
+        public static final int et_set_psd=0x7f080007;
         public static final int gv_home=0x7f080000;
-        public static final int iv_icon=0x7f080007;
-        public static final int rl_root=0x7f080001;
-        public static final int tv_title=0x7f080008;
-        public static final int tv_version_name=0x7f080002;
+        public static final int iv_icon=0x7f080008;
+        public static final int rl_root=0x7f080002;
+        public static final int siv_update=0x7f080001;
+        public static final int tv_title=0x7f080009;
+        public static final int tv_version_name=0x7f080003;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
@@ -94,4 +119,65 @@ public final class R {
         public static final int AppTheme=0x7f060001;
         public static final int TitleStyle=0x7f060002;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a com_itheima_mobilesafe74_view_SettingItemView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #com_itheima_mobilesafe74_view_SettingItemView_desoff com.itheima.mobilesafe74:desoff}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_itheima_mobilesafe74_view_SettingItemView_deson com.itheima.mobilesafe74:deson}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_itheima_mobilesafe74_view_SettingItemView_destitle com.itheima.mobilesafe74:destitle}</code></td><td></td></tr>
+           </table>
+           @see #com_itheima_mobilesafe74_view_SettingItemView_desoff
+           @see #com_itheima_mobilesafe74_view_SettingItemView_deson
+           @see #com_itheima_mobilesafe74_view_SettingItemView_destitle
+         */
+        public static final int[] com_itheima_mobilesafe74_view_SettingItemView = {
+            0x7f010000, 0x7f010001, 0x7f010002
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.itheima.mobilesafe74.R.attr#desoff}
+          attribute's value can be found in the {@link #com_itheima_mobilesafe74_view_SettingItemView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:desoff
+        */
+        public static final int com_itheima_mobilesafe74_view_SettingItemView_desoff = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.itheima.mobilesafe74.R.attr#deson}
+          attribute's value can be found in the {@link #com_itheima_mobilesafe74_view_SettingItemView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:deson
+        */
+        public static final int com_itheima_mobilesafe74_view_SettingItemView_deson = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.itheima.mobilesafe74.R.attr#destitle}
+          attribute's value can be found in the {@link #com_itheima_mobilesafe74_view_SettingItemView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:destitle
+        */
+        public static final int com_itheima_mobilesafe74_view_SettingItemView_destitle = 0;
+    };
 }
