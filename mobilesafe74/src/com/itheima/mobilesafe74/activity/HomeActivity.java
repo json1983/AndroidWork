@@ -87,12 +87,59 @@ public class HomeActivity extends Activity {
 		}
 
 	}
-
+	/**
+	 * 确认密码对话框
+	 */
 	private void showConfirmPsdDialog() {
-		// TODO Auto-generated method stub
-
+		Builder builder = new AlertDialog.Builder(this);
+		final AlertDialog dialog = builder.create();
+		View view = View.inflate(getApplicationContext(), R.layout.dialog_confirm_psd, null);
+		dialog.setView(view);
+		dialog.show();
+		Button bt_submit = (Button) view.findViewById(R.id.bt_submit);
+		Button bt_cancel = (Button) view.findViewById(R.id.bt_cancel);
+		bt_submit.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				EditText et_confirm_psd=(EditText)findViewById(R.id.et_confirm_psd);
+				String confirmPsd =et_confirm_psd.getText().toString();
+				if(!TextUtils.isEmpty(confirmPsd)){
+					//不为空,去XML文件中比对是否一致
+					String psd=SpUtil.getString(getApplicationContext(), ConstantValue.MOBILE_SAFE_PSD, "");
+					if (psd.equals(confirmPsd)) {
+						//一致，//进入应用手机防盗模块,开启一个新的activity
+						Intent intent=new Intent(getApplicationContext(), TestActivity.class);
+						startActivity(intent);
+						dialog.dismiss();
+						
+					}else {
+						//不一致
+						ToastUtil.show(getApplicationContext(), "确认密码错误");
+						
+					}
+					
+				}else {
+					//为空提示用户密码输入有为空的情况
+					ToastUtil.show(getApplicationContext(), "请输入密码");
+				}
+				
+			}
+		});
+		
+		bt_cancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				
+			}
+		});
 	}
-
+	
+	/**
+	 * 设置密码对话框
+	 */
 	private void showSetPsdDialog() {
 		// 因为需要去自己定义对话框的展示样式,所以需要调用dialog.setView(view);
 		// view是由自己编写的xml转换成的view对象xml----->view
@@ -110,35 +157,49 @@ public class HomeActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				EditText et_set_psd = (EditText) view.findViewById(R.id.et_set_psd);
-				EditText et_confirm_psd = (EditText)view.findViewById(R.id.et_confirm_psd);
+				EditText et_set_psd = (EditText) view
+						.findViewById(R.id.et_set_psd);
+				EditText et_confirm_psd = (EditText) view
+						.findViewById(R.id.et_confirm_psd);
 				String psd = et_set_psd.getText().toString();
 				String confirmPsd = et_confirm_psd.getText().toString();
-				if(!TextUtils.isEmpty(psd)&&!TextUtils.isEmpty(confirmPsd)){
-					if(psd.equals(confirmPsd)){
-						//两次密码一致
-						System.out.println(psd+"++++++"+confirmPsd+"===========");
-						//进入应用手机防盗模块,开启一个新的activity
-						Intent intent=new Intent(getApplicationContext(),TestActivity.class);
+				// 两次密码都不能为空
+				if (!TextUtils.isEmpty(psd) && !TextUtils.isEmpty(confirmPsd)) {
+					if (psd.equals(confirmPsd)) {
+						// 两次密码一致
+						System.out.println(psd + "++++++" + confirmPsd
+								+ "===========");
+						// 进入应用手机防盗模块,开启一个新的activity
+						Intent intent = new Intent(getApplicationContext(),
+								TestActivity.class);
 						startActivity(intent);
 						dialog.dismiss();
-					}else {
-						//两次密码不一致
+						// 保存配置
+						SpUtil.putString(getApplicationContext(),
+								ConstantValue.MOBILE_SAFE_PSD, psd);
+					} else {
+						// 两次密码不一致
+						ToastUtil.show(getApplicationContext(), "确认密码错误");
 					}
-					
-					
-					
-				}else {
+
+				} else {
+					// 两次密码都有一个为空
 					ToastUtil.show(HomeActivity.this, "请输入密码");
 				}
-				
-				
-				
+
 			}
 
 		}
 
 		);
+		bt_cancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				
+			}
+		});
 
 	}
 

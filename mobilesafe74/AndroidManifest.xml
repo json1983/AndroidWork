@@ -26,10 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.HomeActivity">
-           
-        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.HomeActivity"></activity>
         <activity android:name="com.itheima.mobilesafe74.activity.TestActivity"></activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.SettingActivity"></activity>
     </application>
 
 </manifest>

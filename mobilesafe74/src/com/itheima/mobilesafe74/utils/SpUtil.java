@@ -20,5 +20,21 @@ public class SpUtil {
 		}
 		return sp.getString(key, defValue);
 	}
+	/**
+	 * 将KEY和VALUE写入xml
+	 * @param ctx 上下文环境
+	 * @param key 存储节点名称
+	 * @param value 存储节点的值string
+	 */
+	public static void putString(Context ctx,
+			String key, String value) {
+		// TODO Auto-generated method stub
+		if (sp==null) {
+			sp=ctx.getSharedPreferences("config", Context.MODE_PRIVATE);
+		}
+		sp.edit().putString(key, value).commit();
+		
+	}
+	
 
 }
