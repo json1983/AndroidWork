@@ -1,0 +1,23 @@
+ctrl+shift+f快速格式化代码
+鼠标放在该行代码，按：Ctrl+2 ，放开后按L，就会自动生成变量名
+生成注释鼠标焦点放在方法里然后ALT+SHIFT+J
+alt+ctrl+向下箭头,向下拷贝相同代码
+抽像类对象上按住ctrl+t查看实现类ff
+
+setContentView(R.layout.activity_setting);
+setContentView(R.layout.main)在Android里面，这句话是什么意思？
+R.layout.main是个布局文件即控件都是如何摆放如何显示的，setContentView就是设置一个Activity的显示界面，这句话就是设置这个这句话所再的Activity采用R.layout下的main布局文件进行布局
+使用setContentView可以在Activity中动态切换显示的View,这样，不需要多个Activity就可以显示不同的界面，因此不再需要在Activity间传送数据，变量可以直接引用。但是，在android SDK给我们建的默认的Hello World程序中，调用的是setContentView(int layoutResID)方法，如果使用该方法切换view,在切换后再切换回，无法显示切换前修改后的样子，也就是说，相当于重新显示一个view,并非是把原来的view隐藏后再显示。其实setContentView是个多态方法，我们可以先用LayoutInflater把布局xml文件引入成View对象，再通过setContentView(View view)方法来切换视图。因为所有对View的修改都保存在View对象里，所以，当切换回原来的view时，就可以直接显示原来修改后的样子。
+
+
+//xml--->view	将设置界面的一个条目转换成view对象,直接添加到了当前SettingItemView对应的view中
+		View.inflate(context, R.layout.setting_item_view, this);
+//等同于以下两行代码
+		/*View view = View.inflate(context, R.layout.setting_item_view, null);
+		this.addView(view);*/
+setContentView和inflate区别：
+setContentView()一旦调用, layout就会立刻显示UI；而inflate只会把Layout形成一个以view类实现成的对象，有需要时再用setContentView(view)显示出来
+一般在activity中通过setContentView()将界面显示出来，但是如果在非activity中如何对控件布局设置操作了，这需LayoutInflater动态加载
+
+android:textSize="18sp"
+android:layout_height="1dp"
