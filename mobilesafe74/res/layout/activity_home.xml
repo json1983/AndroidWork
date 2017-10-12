@@ -23,7 +23,7 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"/>
     -->
-    <com.itheima.mobilesafe74.activity.FocusTextView 
+    <com.itheima.mobilesafe74.view.FocusTextView 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="marquee"
@@ -33,7 +33,7 @@
         android:text="秋天秋天悄悄过去,留下小秘密,啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
         android:textColor="#000"
         >
-     </com.itheima.mobilesafe74.activity.FocusTextView>com.itheima.mobilesafe74.activity.FocusTextView > 
+     </com.itheima.mobilesafe74.view.FocusTextView>
      <!--android:numColumns指定列数  -->
     <!-- android:verticalSpacing="10dp"指定内部条目竖直方向间距为10dp -->
     <GridView 

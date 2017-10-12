@@ -1,4 +1,4 @@
-package com.itheima.mobilesafe74.activity;
+package com.itheima.mobilesafe74.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

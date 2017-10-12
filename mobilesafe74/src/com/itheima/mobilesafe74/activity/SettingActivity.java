@@ -3,19 +3,19 @@ package com.itheima.mobilesafe74.activity;
 import com.itheima.mobilesafe74.R;
 import com.itheima.mobilesafe74.utils.ConstantValue;
 import com.itheima.mobilesafe74.utils.SpUtil;
+import com.itheima.mobilesafe74.view.SettingItemView;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class SettingActivity extends Activity{
-
+public class SettingActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setting);
+		
 		initUpdate();
 	}
 
@@ -24,10 +24,12 @@ public class SettingActivity extends Activity{
 	 */
 	private void initUpdate() {
 		final SettingItemView siv_update = (SettingItemView) findViewById(R.id.siv_update);
+		
 		//获取已有的开关状态,用作显示
 		boolean open_update = SpUtil.getBoolean(this, ConstantValue.OPEN_UPDATE, false);
 		//是否选中,根据上一次存储的结果去做决定
 		siv_update.setCheck(open_update);
+		
 		siv_update.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -43,4 +45,5 @@ public class SettingActivity extends Activity{
 			}
 		});
 	}
+
 }
