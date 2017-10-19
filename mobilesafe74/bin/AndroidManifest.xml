@@ -29,6 +29,8 @@
         <activity android:name="com.itheima.mobilesafe74.activity.HomeActivity"></activity>
         <activity android:name="com.itheima.mobilesafe74.activity.TestActivity"></activity>
         <activity android:name="com.itheima.mobilesafe74.activity.SettingActivity"></activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.SetupOverActivity"></activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.Setup1Activity"></activity>
     </application>
 
 </manifest>

@@ -77,11 +77,13 @@ containing a value of this type.
     public static final class layout {
         public static final int activity_home=0x7f030000;
         public static final int activity_setting=0x7f030001;
-        public static final int activity_splash=0x7f030002;
-        public static final int dialog_confirm_psd=0x7f030003;
-        public static final int dialog_set_psd=0x7f030004;
-        public static final int gridview_item=0x7f030005;
-        public static final int setting_item_view=0x7f030006;
+        public static final int activity_setup1=0x7f030002;
+        public static final int activity_setup_over=0x7f030003;
+        public static final int activity_splash=0x7f030004;
+        public static final int dialog_confirm_psd=0x7f030005;
+        public static final int dialog_set_psd=0x7f030006;
+        public static final int gridview_item=0x7f030007;
+        public static final int setting_item_view=0x7f030008;
     }
     public static final class menu {
         public static final int splash=0x7f070000;

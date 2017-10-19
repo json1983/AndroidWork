@@ -2,9 +2,11 @@ package com.itheima.mobilesafe74.activity;
 
 import com.itheima.mobilesafe74.R;
 import com.itheima.mobilesafe74.utils.ConstantValue;
+import com.itheima.mobilesafe74.utils.Md5Util;
 import com.itheima.mobilesafe74.utils.SpUtil;
 import com.itheima.mobilesafe74.utils.ToastUtil;
 
+import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -95,7 +97,8 @@ public class HomeActivity extends Activity {
 		
 		final View view = View.inflate(this, R.layout.dialog_confirm_psd, null);
 		//让对话框显示一个自己定义的对话框界面效果
-		dialog.setView(view);
+		//dialog.setView(view);
+		dialog.setView(view, 0, 0, 0, 0);
 		dialog.show();
 		
 		Button bt_submit = (Button) view.findViewById(R.id.bt_submit);
@@ -110,9 +113,9 @@ public class HomeActivity extends Activity {
 				
 				if(!TextUtils.isEmpty(confirmPsd)){
 					String psd = SpUtil.getString(getApplicationContext(), ConstantValue.MOBILE_SAFE_PSD, "");
-					if(psd.equals(confirmPsd)){
+					if(psd.equals(Md5Util.encoder(confirmPsd))){
 						//进入应用手机防盗模块,开启一个新的activity
-						Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+						Intent intent = new Intent(getApplicationContext(), SetupOverActivity.class);
 						startActivity(intent);
 						//跳转到新的界面以后需要去隐藏对话框
 						dialog.dismiss();
@@ -145,7 +148,8 @@ public class HomeActivity extends Activity {
 		
 		final View view = View.inflate(this, R.layout.dialog_set_psd, null);
 		//让对话框显示一个自己定义的对话框界面效果
-		dialog.setView(view);
+		//dialog.setView(view);
+		dialog.setView(view, 0, 0, 0, 0);
 		dialog.show();
 		
 		Button bt_submit = (Button) view.findViewById(R.id.bt_submit);
@@ -163,12 +167,13 @@ public class HomeActivity extends Activity {
 				if(!TextUtils.isEmpty(psd) && !TextUtils.isEmpty(confirmPsd)){
 					if(psd.equals(confirmPsd)){
 						//进入应用手机防盗模块,开启一个新的activity
-						Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+						//Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+						Intent intent = new Intent(getApplicationContext(), SetupOverActivity.class);
 						startActivity(intent);
 						//跳转到新的界面以后需要去隐藏对话框
 						dialog.dismiss();
 						
-						SpUtil.putString(getApplicationContext(), ConstantValue.MOBILE_SAFE_PSD, psd);
+						SpUtil.putString(getApplicationContext(), ConstantValue.MOBILE_SAFE_PSD, Md5Util.encoder(confirmPsd));
 					}else{
 						ToastUtil.show(getApplicationContext(),"确认密码错误");
 					}

@@ -14,5 +14,9 @@ public class ConstantValue {
 	 * 是否开启更新的key
 	 */
 	public static final String OPEN_UPDATE = "open_update";
+	/**
+	 * 设置完成的KEY
+	 */
+	public static final String SETUP_OVER = "setup_over";
 
 }
