@@ -10,6 +10,7 @@
 	<!-- android:theme="@android:style/Theme.Light.NoTitleBar" -->
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -31,6 +32,11 @@
         <activity android:name="com.itheima.mobilesafe74.activity.SettingActivity"></activity>
         <activity android:name="com.itheima.mobilesafe74.activity.SetupOverActivity"></activity>
         <activity android:name="com.itheima.mobilesafe74.activity.Setup1Activity"></activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.Setup2Activity"></activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.Setup3Activity"></activity>
+        
+        
+        
     </application>
 
 </manifest>

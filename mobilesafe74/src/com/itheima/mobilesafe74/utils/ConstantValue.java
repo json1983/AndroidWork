@@ -18,5 +18,13 @@ public class ConstantValue {
 	 * 设置完成的KEY
 	 */
 	public static final String SETUP_OVER = "setup_over";
+	/**
+	 * sim卡的序列号KEY
+	 */
+	public static final String SIM_NUMBER = "sim_number";
+	/**
+	 * 绑定安全号码的KEY
+	 */
+	public static final String CONTACT_PHONE = null;
 
 }

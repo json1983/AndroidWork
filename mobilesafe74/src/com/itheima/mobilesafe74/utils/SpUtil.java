@@ -63,6 +63,18 @@ public class SpUtil {
 		}
 		sp.edit().putBoolean(key, value).commit();
 	}
+	/**
+	 * 从sp中移除指定节点
+	 * @param ctx	上下文环境
+	 * @param key	需要移除节点的名称
+	 */
+	public static void remove(Context ctx, String key) {
+		if(sp == null){
+			sp = ctx.getSharedPreferences("config", Context.MODE_PRIVATE);
+		}
+		sp.edit().remove(key).commit();
+		
+	}
 	
 
 }

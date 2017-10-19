@@ -8,6 +8,12 @@
 package com.itheima.mobilesafe74;
 
 public final class R {
+    public static final class anim {
+        public static final int next_in_anim=0x7f040000;
+        public static final int next_out_anim=0x7f040001;
+        public static final int pre_in_anim=0x7f040002;
+        public static final int pre_out_anim=0x7f040003;
+    }
     public static final class attr {
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -41,57 +47,78 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int home_apps=0x7f020000;
-        public static final int home_callmsgsafe=0x7f020001;
-        public static final int home_netmanager=0x7f020002;
-        public static final int home_safe=0x7f020003;
-        public static final int home_settings=0x7f020004;
-        public static final int home_sysoptimize=0x7f020005;
-        public static final int home_taskmanager=0x7f020006;
-        public static final int home_tools=0x7f020007;
-        public static final int home_trojan=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int launcher_bg=0x7f02000a;
-        public static final int logo=0x7f02000b;
-        public static final int one=0x7f02000c;
+        public static final int bind=0x7f020000;
+        public static final int btn_green_normal=0x7f020001;
+        public static final int btn_green_pressed=0x7f020002;
+        public static final int function_greenbutton_normal=0x7f020003;
+        public static final int function_greenbutton_pressed=0x7f020004;
+        public static final int home_apps=0x7f020005;
+        public static final int home_callmsgsafe=0x7f020006;
+        public static final int home_netmanager=0x7f020007;
+        public static final int home_safe=0x7f020008;
+        public static final int home_settings=0x7f020009;
+        public static final int home_sysoptimize=0x7f02000a;
+        public static final int home_taskmanager=0x7f02000b;
+        public static final int home_tools=0x7f02000c;
+        public static final int home_trojan=0x7f02000d;
+        public static final int ic_launcher=0x7f02000e;
+        public static final int launcher_bg=0x7f02000f;
+        public static final int listview_divider=0x7f020010;
+        public static final int lock=0x7f020011;
+        public static final int logo=0x7f020012;
+        public static final int next=0x7f020013;
+        public static final int one=0x7f020014;
+        public static final int phone=0x7f020015;
+        public static final int previous=0x7f020016;
+        public static final int selector_next_btn_bg=0x7f020017;
+        public static final int selector_number_btn_bg=0x7f020018;
+        public static final int setup1=0x7f020019;
+        public static final int unlock=0x7f02001a;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000c;
-        public static final int bt_cancel=0x7f080006;
-        public static final int bt_submit=0x7f080005;
-        public static final int cb_box=0x7f08000b;
-        public static final int et_confirm_psd=0x7f080004;
-        public static final int et_set_psd=0x7f080007;
-        public static final int gv_home=0x7f080000;
-        public static final int iv_icon=0x7f080008;
-        public static final int rl_root=0x7f080002;
-        public static final int siv_update=0x7f080001;
-        public static final int tv_des=0x7f08000a;
-        public static final int tv_title=0x7f080009;
-        public static final int tv_version_name=0x7f080003;
+        public static final int action_settings=0x7f090010;
+        public static final int bt_cancel=0x7f09000a;
+        public static final int bt_select_number=0x7f090005;
+        public static final int bt_submit=0x7f090009;
+        public static final int cb_box=0x7f09000f;
+        public static final int et_confirm_psd=0x7f090008;
+        public static final int et_phone_number=0x7f090004;
+        public static final int et_set_psd=0x7f09000b;
+        public static final int gv_home=0x7f090001;
+        public static final int iv_icon=0x7f09000c;
+        public static final int lv_contact=0x7f090000;
+        public static final int rl_root=0x7f090006;
+        public static final int siv_sim_bound=0x7f090003;
+        public static final int siv_update=0x7f090002;
+        public static final int tv_des=0x7f09000e;
+        public static final int tv_title=0x7f09000d;
+        public static final int tv_version_name=0x7f090007;
     }
     public static final class layout {
-        public static final int activity_home=0x7f030000;
-        public static final int activity_setting=0x7f030001;
-        public static final int activity_setup1=0x7f030002;
-        public static final int activity_setup_over=0x7f030003;
-        public static final int activity_splash=0x7f030004;
-        public static final int dialog_confirm_psd=0x7f030005;
-        public static final int dialog_set_psd=0x7f030006;
-        public static final int gridview_item=0x7f030007;
-        public static final int setting_item_view=0x7f030008;
+        public static final int activity_contact_list=0x7f030000;
+        public static final int activity_home=0x7f030001;
+        public static final int activity_setting=0x7f030002;
+        public static final int activity_setup1=0x7f030003;
+        public static final int activity_setup2=0x7f030004;
+        public static final int activity_setup3=0x7f030005;
+        public static final int activity_setup_over=0x7f030006;
+        public static final int activity_splash=0x7f030007;
+        public static final int dialog_confirm_psd=0x7f030008;
+        public static final int dialog_set_psd=0x7f030009;
+        public static final int gridview_item=0x7f03000a;
+        public static final int setting_item_view=0x7f03000b;
     }
     public static final class menu {
-        public static final int splash=0x7f070000;
+        public static final int splash=0x7f080000;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050000;
-        public static final int hello_world=0x7f050002;
+        public static final int action_settings=0x7f060001;
+        public static final int app_name=0x7f060000;
+        public static final int hello_world=0x7f060002;
     }
     public static final class style {
         /** 
@@ -117,12 +144,24 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int TitleStyle=0x7f060002;
+        public static final int AppTheme=0x7f070001;
+        public static final int TitleStyle=0x7f070002;
+        public static final int nextBtn=0x7f070004;
+        /**  <Button
+	   	    android:text="下一页"
+	   	    android:onClick="nextPage"
+	   	    android:layout_alignParentRight="true"
+	   	    android:layout_alignParentBottom="true"
+	   	    android:drawableRight="@drawable/next"
+	   	    android:background="@drawable/selector_next_btn_bg"
+	   	    android:layout_width="wrap_content"
+	   	    android:layout_height="wrap_content"/> 
+         */
+        public static final int preBtn=0x7f070003;
     }
     public static final class styleable {
         /** Attributes that can be used with a com_itheima_mobilesafe74_view_SettingItemView.
@@ -153,7 +192,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:desoff
+          @attr name com.itheima.mobilesafe74:desoff
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_desoff = 1;
         /**
@@ -167,7 +206,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:deson
+          @attr name com.itheima.mobilesafe74:deson
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_deson = 2;
         /**
@@ -181,7 +220,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:destitle
+          @attr name com.itheima.mobilesafe74:destitle
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_destitle = 0;
     };
