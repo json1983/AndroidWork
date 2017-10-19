@@ -80,11 +80,11 @@ containing a value of this type.
         public static final int unlock=0x7f02001a;
     }
     public static final class id {
-        public static final int action_settings=0x7f090010;
+        public static final int action_settings=0x7f090012;
         public static final int bt_cancel=0x7f09000a;
         public static final int bt_select_number=0x7f090005;
         public static final int bt_submit=0x7f090009;
-        public static final int cb_box=0x7f09000f;
+        public static final int cb_box=0x7f090011;
         public static final int et_confirm_psd=0x7f090008;
         public static final int et_phone_number=0x7f090004;
         public static final int et_set_psd=0x7f09000b;
@@ -94,7 +94,9 @@ containing a value of this type.
         public static final int rl_root=0x7f090006;
         public static final int siv_sim_bound=0x7f090003;
         public static final int siv_update=0x7f090002;
-        public static final int tv_des=0x7f09000e;
+        public static final int tv_des=0x7f090010;
+        public static final int tv_name=0x7f09000e;
+        public static final int tv_phone=0x7f09000f;
         public static final int tv_title=0x7f09000d;
         public static final int tv_version_name=0x7f090007;
     }
@@ -105,12 +107,14 @@ containing a value of this type.
         public static final int activity_setup1=0x7f030003;
         public static final int activity_setup2=0x7f030004;
         public static final int activity_setup3=0x7f030005;
-        public static final int activity_setup_over=0x7f030006;
-        public static final int activity_splash=0x7f030007;
-        public static final int dialog_confirm_psd=0x7f030008;
-        public static final int dialog_set_psd=0x7f030009;
-        public static final int gridview_item=0x7f03000a;
-        public static final int setting_item_view=0x7f03000b;
+        public static final int activity_setup4=0x7f030006;
+        public static final int activity_setup_over=0x7f030007;
+        public static final int activity_splash=0x7f030008;
+        public static final int dialog_confirm_psd=0x7f030009;
+        public static final int dialog_set_psd=0x7f03000a;
+        public static final int gridview_item=0x7f03000b;
+        public static final int listview_contact_item=0x7f03000c;
+        public static final int setting_item_view=0x7f03000d;
     }
     public static final class menu {
         public static final int splash=0x7f080000;
@@ -192,7 +196,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:desoff
+          @attr name android:desoff
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_desoff = 1;
         /**
@@ -206,7 +210,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:deson
+          @attr name android:deson
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_deson = 2;
         /**
@@ -220,7 +224,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:destitle
+          @attr name android:destitle
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_destitle = 0;
     };
