@@ -15,7 +15,7 @@ public class ConstantValue {
 	 */
 	public static final String OPEN_UPDATE = "open_update";
 	/**
-	 * 设置完成的KEY
+	 * 设置完成导航页面的KEY
 	 */
 	public static final String SETUP_OVER = "setup_over";
 	/**
@@ -25,6 +25,10 @@ public class ConstantValue {
 	/**
 	 * 绑定安全号码的KEY
 	 */
-	public static final String CONTACT_PHONE = null;
+	public static final String CONTACT_PHONE = "contact_phone";
+	/**
+	 * 防盗总开关KEY
+	 */
+	public static final String OPEN_SECURITY = "open_security";
 
 }
