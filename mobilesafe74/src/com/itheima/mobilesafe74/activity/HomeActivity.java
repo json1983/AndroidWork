@@ -64,6 +64,11 @@ public class HomeActivity extends Activity {
 					//开启对话框
 					showDialog();
 					break;
+				case 7:
+					//高级工具页面
+					
+					startActivity(new Intent(getApplicationContext(), AToolActivity.class));
+					break;
 				case 8:
 					Intent intent = new Intent(getApplicationContext(),SettingActivity.class);
 					startActivity(intent);

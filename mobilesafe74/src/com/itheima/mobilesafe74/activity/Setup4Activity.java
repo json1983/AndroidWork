@@ -13,7 +13,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
-public class Setup4Activity extends Activity {
+public class Setup4Activity extends BaseSetupActivity {
 	private CheckBox cb_box;
 
 	@Override
@@ -54,7 +54,8 @@ public class Setup4Activity extends Activity {
 
 	}
 
-	public void nextPage(View view){
+	@Override
+	protected void showNextPage() {
 		boolean open_security = SpUtil.getBoolean(this, ConstantValue.OPEN_SECURITY, false);
 		if(open_security){
 			Intent intent = new Intent(getApplicationContext(), SetupOverActivity.class);
@@ -67,15 +68,16 @@ public class Setup4Activity extends Activity {
 		}else{
 			ToastUtil.show(getApplicationContext(), "请开启防盗保护");
 		}
-		
 	}
-	
-	public void prePage(View view){
+
+	@Override
+	protected void showPrePage() {
 		Intent intent = new Intent(getApplicationContext(), Setup3Activity.class);
 		startActivity(intent);
 		
 		finish();
 		
 		overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
+		
 	}
 }

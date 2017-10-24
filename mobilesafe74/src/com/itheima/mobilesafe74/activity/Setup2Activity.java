@@ -23,7 +23,7 @@ import android.view.View.OnClickListener;
  * @author Administrator
  *
  */
-public class Setup2Activity extends Activity {
+public class Setup2Activity extends BaseSetupActivity {
 	private SettingItemView siv_sim_bound;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,11 @@ public class Setup2Activity extends Activity {
 			}
 		});
 	}
-	public void nextPage(View view){
+	
+	
+
+	@Override
+	protected void showNextPage() {
 		//判空
 		String serialNumber=SpUtil.getString(getApplicationContext(), ConstantValue.SIM_NUMBER, "");
 		if (!TextUtils.isEmpty(serialNumber)) {
@@ -81,12 +85,15 @@ public class Setup2Activity extends Activity {
 		}
 		
 	}
-	public void prePage(View view){
+
+	@Override
+	protected void showPrePage() {
 		Intent intent = new Intent(getApplicationContext(), Setup1Activity.class);
 		startActivity(intent);
 		
 		finish();
 		
 		overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
+		
 	}
 }

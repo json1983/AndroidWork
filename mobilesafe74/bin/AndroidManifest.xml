@@ -37,7 +37,7 @@
         <activity android:name="com.itheima.mobilesafe74.activity.Setup3Activity"></activity>
         <activity android:name="com.itheima.mobilesafe74.activity.ContactListActivity"></activity>
         <activity android:name="com.itheima.mobilesafe74.activity.Setup4Activity"></activity>
-        
+        <activity android:name="com.itheima.mobilesafe74.activity.AToolActivity"></activity>
     </application>
 
 </manifest>

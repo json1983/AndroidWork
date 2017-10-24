@@ -14,7 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Setup3Activity extends Activity {
+public class Setup3Activity extends BaseSetupActivity {
 	private EditText et_phone_number;
 	private Button bt_select_number;
 
@@ -64,28 +64,31 @@ public class Setup3Activity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	public void nextPage(View view) {
+	@Override
+	protected void showNextPage() {
 		// 点击按钮以后,需要获取输入框中的联系人,再做下一页操作
-		String phone = et_phone_number.getText().toString();
-		// 在sp存储了相关联系人以后才可以跳转到下一个界面
-		// String contact_phone = SpUtil.getString(getApplicationContext(),
-		// ConstantValue.CONTACT_PHONE, "");
-		if (!TextUtils.isEmpty(phone)) {
-			Intent intent = new Intent(getApplicationContext(),
-					Setup4Activity.class);
-			startActivity(intent);
+				String phone = et_phone_number.getText().toString();
+				// 在sp存储了相关联系人以后才可以跳转到下一个界面
+				// String contact_phone = SpUtil.getString(getApplicationContext(),
+				// ConstantValue.CONTACT_PHONE, "");
+				if (!TextUtils.isEmpty(phone)) {
+					Intent intent = new Intent(getApplicationContext(),
+							Setup4Activity.class);
+					startActivity(intent);
 
-			finish();
-			// 如果现在是输入电话号码,则需要去保存
-			SpUtil.putString(getApplicationContext(),
-					ConstantValue.CONTACT_PHONE, phone);
-			overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
-		} else {
-			ToastUtil.show(this, "请输入电话号码");
-		}
+					finish();
+					// 如果现在是输入电话号码,则需要去保存
+					SpUtil.putString(getApplicationContext(),
+							ConstantValue.CONTACT_PHONE, phone);
+					overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
+				} else {
+					ToastUtil.show(this, "请输入电话号码");
+				}
+		
 	}
 
-	public void prePage(View view) {
+	@Override
+	protected void showPrePage() {
 		Intent intent = new Intent(getApplicationContext(),
 				Setup2Activity.class);
 		startActivity(intent);
