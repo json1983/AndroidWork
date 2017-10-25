@@ -49,6 +49,12 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <receiver android:name="com.itheima.mobilesafe74.receiver.SmsReceiver">
+            <intent-filter >
+                <!-- 为了去关联系统短信的广播对应过滤条件,先将编译版本改为4.1.2 -->
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

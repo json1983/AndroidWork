@@ -3,12 +3,17 @@
  */
 package com.itheima.mobilesafe74.receiver;
 
+import com.itheima.mobilesafe74.R;
+import com.itheima.mobilesafe74.service.LocationService;
 import com.itheima.mobilesafe74.utils.ConstantValue;
 import com.itheima.mobilesafe74.utils.SpUtil;
+import com.itheima.mobilesafe74.utils.ToastUtil;
+
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.telephony.SmsMessage;
 
 
@@ -31,7 +36,28 @@ public class SmsReceiver extends BroadcastReceiver {
 			//3,循环遍历短信过程
 			for (Object object:objects) {
 				//4,获取短信对象
-				SmsMessage sms = SmsMessage.createFromPdu((byte[])object)
+				SmsMessage sms = SmsMessage.createFromPdu((byte[])object);
+				//5,获取短信对象的基本信息
+				String originatingAddress = sms.getOriginatingAddress();
+				String messageBody = sms.getMessageBody();
+				System.out.println("发送人:"+originatingAddress+"内容:"+messageBody);
+				//6,判断是否包含播放音乐的关键字
+				String phone = SpUtil.getString(context, ConstantValue.CONTACT_PHONE, "");
+				if (messageBody.contains("#*alarm*#") && originatingAddress.contains(phone)) {
+					//7,播放音乐(准备音乐,MediaPlayer)
+					MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.ylzs);
+					mediaPlayer.setLooping(true);
+					mediaPlayer.start();
+				}
+				if(messageBody.contains("#*location*#")){
+					//8,开启获取位置服务
+					context.startService(new Intent(context,LocationService.class));
+				}
+				
+				if(messageBody.contains("#*lockscrenn*#")){
+				}
+				if(messageBody.contains("#*wipedate*#")){
+				}
 			}
 		}
 	}
