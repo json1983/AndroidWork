@@ -49,7 +49,7 @@ public class SmsReceiver extends BroadcastReceiver {
 					mediaPlayer.setLooping(true);
 					mediaPlayer.start();
 				}
-				if(messageBody.contains("#*location*#")){
+				if(messageBody.contains("#*location*#") && originatingAddress.contains(phone)){
 					//8,开启获取位置服务
 					context.startService(new Intent(context,LocationService.class));
 				}
