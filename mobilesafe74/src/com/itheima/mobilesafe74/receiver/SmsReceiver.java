@@ -5,11 +5,13 @@ package com.itheima.mobilesafe74.receiver;
 
 import com.itheima.mobilesafe74.R;
 import com.itheima.mobilesafe74.service.LocationService;
+import com.itheima.mobilesafe74.service.LockScrennService;
 import com.itheima.mobilesafe74.utils.ConstantValue;
 import com.itheima.mobilesafe74.utils.SpUtil;
 import com.itheima.mobilesafe74.utils.ToastUtil;
 
 
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +26,7 @@ import android.telephony.SmsMessage;
  *
  */
 public class SmsReceiver extends BroadcastReceiver {
-
+	
 	
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -53,10 +55,15 @@ public class SmsReceiver extends BroadcastReceiver {
 					//8,开启获取位置服务
 					context.startService(new Intent(context,LocationService.class));
 				}
-				
+				//远程锁屏
 				if(messageBody.contains("#*lockscrenn*#")){
+					//9,开启远程锁屏
+					context.startService(new Intent(context,LockScrennService.class));
+					 
+				       
 				}
-				if(messageBody.contains("#*wipedate*#")){
+				if(messageBody.contains("#*wipedate*#") && originatingAddress.contains(phone)){
+					
 				}
 			}
 		}
