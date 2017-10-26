@@ -7,24 +7,25 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="16" />
-	<!-- android:theme="@android:style/Theme.Light.NoTitleBar" -->
-	<uses-permission android:name="android.permission.INTERNET"/>
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-	<uses-permission android:name="android.permission.READ_CONTACTS"/>
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- android:theme="@android:style/Theme.Light.NoTitleBar" -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- //获取准确GPS坐标的权限 -->
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> <!-- //允许模拟器模拟位置坐标的权限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- //获取粗略坐标的权限(网络定位时使用) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- //获取准确GPS坐标的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <!-- //允许模拟器模拟位置坐标的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- //获取粗略坐标的权限(网络定位时使用) -->
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" 
-        
-        >
+        android:theme="@style/AppTheme" >
         <activity
             android:name="com.itheima.mobilesafe74.activity.SplashActivity"
             android:label="@string/app_name" >
@@ -34,29 +35,55 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.HomeActivity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.TestActivity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.SettingActivity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.SetupOverActivity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.Setup1Activity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.Setup2Activity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.Setup3Activity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.ContactListActivity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.Setup4Activity"></activity>
-        <activity android:name="com.itheima.mobilesafe74.activity.AToolActivity"></activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.HomeActivity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.TestActivity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.SettingActivity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.SetupOverActivity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.Setup1Activity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.Setup2Activity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.Setup3Activity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.ContactListActivity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.Setup4Activity" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.AToolActivity" >
+        </activity>
+
         <receiver android:name="com.itheima.mobilesafe74.receiver.BootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.itheima.mobilesafe74.receiver.SmsReceiver">
-            <intent-filter >
+        <receiver android:name="com.itheima.mobilesafe74.receiver.SmsReceiver" >
+            <intent-filter>
+
                 <!-- 为了去关联系统短信的广播对应过滤条件,先将编译版本改为4.1.2 -->
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        <service android:name="com.itheima.mobilesafe74.service.LocationService"></service>
-        <service android:name="com.itheima.mobilesafe74.service.LockScrennService"></service>
+
+        <service android:name="com.itheima.mobilesafe74.service.LocationService" >
+        </service>
+        <service android:name="com.itheima.mobilesafe74.service.LockScrennService" >
+        </service>
+
+       <receiver android:name="com.itheima.mobilesafe74.receiver.MyDeviceAdminReceiver"
+		        android:label="@string/sample_device_admin"
+		        android:description="@string/sample_device_admin_description"
+		        android:permission="android.permission.BIND_DEVICE_ADMIN">
+		    <meta-data android:name="android.app.device_admin"
+		            android:resource="@xml/device_admin_sample" />
+		    <intent-filter>
+		        <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+		    </intent-filter>
+		</receiver>
     </application>
 
 </manifest>

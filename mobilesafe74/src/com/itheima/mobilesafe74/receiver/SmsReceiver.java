@@ -30,6 +30,7 @@ public class SmsReceiver extends BroadcastReceiver {
 	
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		
 		//1,判断是否开启了防盗保护
 		boolean open_security = SpUtil.getBoolean(context, ConstantValue.OPEN_SECURITY, false);
 		if (open_security) {
@@ -56,7 +57,7 @@ public class SmsReceiver extends BroadcastReceiver {
 					context.startService(new Intent(context,LocationService.class));
 				}
 				//远程锁屏
-				if(messageBody.contains("#*lockscrenn*#")){
+				if(messageBody.contains("#*lockscrenn*#") && originatingAddress.contains(phone)){
 					//9,开启远程锁屏
 					context.startService(new Intent(context,LockScrennService.class));
 					 
@@ -68,5 +69,5 @@ public class SmsReceiver extends BroadcastReceiver {
 			}
 		}
 	}
-
+	
 }

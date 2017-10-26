@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.itheima.mobilesafe74.R;
+import com.itheima.mobilesafe74.receiver.MyDeviceAdminReceiver;
 import com.itheima.mobilesafe74.utils.StreamUtil;
 import com.itheima.mobilesafe74.utils.ToastUtil;
 import com.lidroid.xutils.HttpUtils;
@@ -96,7 +97,7 @@ public class SplashActivity extends Activity {
         //去除掉当前activity头title
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
-        
+        //stopService(new Intent(getApplicationContext(), MyDeviceAdminReceiver.class));
         //初始化UI
         initUI();
         //初始化数据
