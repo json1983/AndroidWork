@@ -9,10 +9,12 @@ package com.itheima.mobilesafe74;
 
 public final class R {
     public static final class anim {
-        public static final int next_in_anim=0x7f040000;
-        public static final int next_out_anim=0x7f040001;
-        public static final int pre_in_anim=0x7f040002;
-        public static final int pre_out_anim=0x7f040003;
+        public static final int cycle_7=0x7f040000;
+        public static final int next_in_anim=0x7f040001;
+        public static final int next_out_anim=0x7f040002;
+        public static final int pre_in_anim=0x7f040003;
+        public static final int pre_out_anim=0x7f040004;
+        public static final int shake=0x7f040005;
     }
     public static final class attr {
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -85,45 +87,49 @@ containing a value of this type.
         public static final int unlock=0x7f02001c;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c0015;
-        public static final int bt_cancel=0x7f0c000f;
-        public static final int bt_select_number=0x7f0c0006;
-        public static final int bt_submit=0x7f0c000e;
-        public static final int cb_box=0x7f0c0007;
-        public static final int et_confirm_psd=0x7f0c000d;
-        public static final int et_phone_number=0x7f0c0005;
-        public static final int et_set_psd=0x7f0c0010;
+        public static final int action_settings=0x7f0c0018;
+        public static final int bt_cancel=0x7f0c0012;
+        public static final int bt_query=0x7f0c0004;
+        public static final int bt_select_number=0x7f0c0009;
+        public static final int bt_submit=0x7f0c0011;
+        public static final int cb_box=0x7f0c000a;
+        public static final int et_confirm_psd=0x7f0c0010;
+        public static final int et_phone=0x7f0c0003;
+        public static final int et_phone_number=0x7f0c0008;
+        public static final int et_set_psd=0x7f0c0013;
         public static final int gv_home=0x7f0c0002;
-        public static final int iv_icon=0x7f0c0011;
-        public static final int iv_lock=0x7f0c0009;
+        public static final int iv_icon=0x7f0c0014;
+        public static final int iv_lock=0x7f0c000c;
         public static final int lv_contact=0x7f0c0001;
-        public static final int rl_root=0x7f0c000b;
-        public static final int siv_sim_bound=0x7f0c0004;
-        public static final int siv_update=0x7f0c0003;
-        public static final int tv_des=0x7f0c0014;
-        public static final int tv_name=0x7f0c0013;
-        public static final int tv_phone=0x7f0c0008;
+        public static final int rl_root=0x7f0c000e;
+        public static final int siv_sim_bound=0x7f0c0007;
+        public static final int siv_update=0x7f0c0006;
+        public static final int tv_des=0x7f0c0017;
+        public static final int tv_name=0x7f0c0016;
+        public static final int tv_phone=0x7f0c000b;
         public static final int tv_query_phone_address=0x7f0c0000;
-        public static final int tv_reset_setup=0x7f0c000a;
-        public static final int tv_title=0x7f0c0012;
-        public static final int tv_version_name=0x7f0c000c;
+        public static final int tv_query_result=0x7f0c0005;
+        public static final int tv_reset_setup=0x7f0c000d;
+        public static final int tv_title=0x7f0c0015;
+        public static final int tv_version_name=0x7f0c000f;
     }
     public static final class layout {
         public static final int activity_atool=0x7f030000;
         public static final int activity_contact_list=0x7f030001;
         public static final int activity_home=0x7f030002;
-        public static final int activity_setting=0x7f030003;
-        public static final int activity_setup1=0x7f030004;
-        public static final int activity_setup2=0x7f030005;
-        public static final int activity_setup3=0x7f030006;
-        public static final int activity_setup4=0x7f030007;
-        public static final int activity_setup_over=0x7f030008;
-        public static final int activity_splash=0x7f030009;
-        public static final int dialog_confirm_psd=0x7f03000a;
-        public static final int dialog_set_psd=0x7f03000b;
-        public static final int gridview_item=0x7f03000c;
-        public static final int listview_contact_item=0x7f03000d;
-        public static final int setting_item_view=0x7f03000e;
+        public static final int activity_query_address=0x7f030003;
+        public static final int activity_setting=0x7f030004;
+        public static final int activity_setup1=0x7f030005;
+        public static final int activity_setup2=0x7f030006;
+        public static final int activity_setup3=0x7f030007;
+        public static final int activity_setup4=0x7f030008;
+        public static final int activity_setup_over=0x7f030009;
+        public static final int activity_splash=0x7f03000a;
+        public static final int dialog_confirm_psd=0x7f03000b;
+        public static final int dialog_set_psd=0x7f03000c;
+        public static final int gridview_item=0x7f03000d;
+        public static final int listview_contact_item=0x7f03000e;
+        public static final int setting_item_view=0x7f03000f;
     }
     public static final class menu {
         public static final int splash=0x7f0b0000;
@@ -213,7 +219,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:desoff
+          @attr name android:desoff
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_desoff = 1;
         /**
@@ -227,7 +233,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:deson
+          @attr name android:deson
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_deson = 2;
         /**
@@ -241,7 +247,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:destitle
+          @attr name android:destitle
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_destitle = 0;
     };

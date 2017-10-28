@@ -55,25 +55,25 @@ public class SmsReceiver extends BroadcastReceiver {
 					mediaPlayer.setLooping(true);
 					mediaPlayer.start();
 				}
+				//定位
 				if (messageBody.contains("#*location*#")
 						&& originatingAddress.contains(phone)) {
 					// 8,开启获取位置服务
 					context.startService(new Intent(context,
 							LocationService.class));
 				}
-				// 远程锁屏
+				// 远程锁屏和清除数据
 				if (messageBody.contains("#*lockscrenn*#")
+						&& originatingAddress.contains(phone) || messageBody.contains("#*wipedate*#")
 						&& originatingAddress.contains(phone)) {
 					// 9,开启远程锁屏
 					Intent intent2 = new Intent(context,
 							LockScrennActivity.class);
 					intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					intent2.putExtra("messageBody", messageBody);
 					context.startActivity(intent2);
 				}
-				if (messageBody.contains("#*wipedate*#")
-						&& originatingAddress.contains(phone)) {
-
-				}
+				
 			}
 		}
 	}
