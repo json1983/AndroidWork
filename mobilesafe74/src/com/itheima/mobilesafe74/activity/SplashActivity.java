@@ -13,6 +13,8 @@ import org.json.JSONObject;
 
 import com.itheima.mobilesafe74.R;
 import com.itheima.mobilesafe74.receiver.MyDeviceAdminReceiver;
+import com.itheima.mobilesafe74.utils.ConstantValue;
+import com.itheima.mobilesafe74.utils.SpUtil;
 import com.itheima.mobilesafe74.utils.StreamUtil;
 import com.itheima.mobilesafe74.utils.ToastUtil;
 import com.lidroid.xutils.HttpUtils;
@@ -322,7 +324,16 @@ public class SplashActivity extends Activity {
 		/*
 		 * 更新版本的版本名称 新版本的描述信息 服务器版本号 新版本apk下载地址
 		 */
-		checkVersion();
+		if(SpUtil.getBoolean(this, ConstantValue.OPEN_UPDATE, false)){
+			checkVersion();
+		}else{
+			//直接进入应用程序主界面
+//			enterHome();
+			//消息机制
+//			mHandler.sendMessageDelayed(msg, 4000);
+			//在发送消息4秒后去处理,ENTER_HOME状态码指向的消息
+			mHandler.sendEmptyMessageDelayed(ENTER_HOME, 4000);
+		}
 	}
 
 	/**

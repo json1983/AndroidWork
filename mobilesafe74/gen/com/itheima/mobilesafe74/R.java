@@ -125,11 +125,12 @@ containing a value of this type.
         public static final int activity_setup4=0x7f030008;
         public static final int activity_setup_over=0x7f030009;
         public static final int activity_splash=0x7f03000a;
-        public static final int dialog_confirm_psd=0x7f03000b;
-        public static final int dialog_set_psd=0x7f03000c;
-        public static final int gridview_item=0x7f03000d;
-        public static final int listview_contact_item=0x7f03000e;
-        public static final int setting_item_view=0x7f03000f;
+        public static final int activity_toast_location=0x7f03000b;
+        public static final int dialog_confirm_psd=0x7f03000c;
+        public static final int dialog_set_psd=0x7f03000d;
+        public static final int gridview_item=0x7f03000e;
+        public static final int listview_contact_item=0x7f03000f;
+        public static final int setting_item_view=0x7f030010;
     }
     public static final class menu {
         public static final int splash=0x7f0b0000;
