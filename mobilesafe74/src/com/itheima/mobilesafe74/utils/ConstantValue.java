@@ -38,5 +38,10 @@ public class ConstantValue {
 	 * 来电显示吐司坐标y
 	 */
 	public static final String LOCATION_Y = "location_y";
+	
+	/**
+	 * 吐司选择样式索引所在key
+	 */
+	public static final String TOAST_STYLE="toast_style";
 
 }

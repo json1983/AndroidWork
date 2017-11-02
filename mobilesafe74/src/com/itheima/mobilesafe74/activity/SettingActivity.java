@@ -5,15 +5,22 @@ import com.itheima.mobilesafe74.service.AddressService;
 import com.itheima.mobilesafe74.utils.ConstantValue;
 import com.itheima.mobilesafe74.utils.ServiceUtil;
 import com.itheima.mobilesafe74.utils.SpUtil;
+import com.itheima.mobilesafe74.view.SettingClickView;
 import com.itheima.mobilesafe74.view.SettingItemView;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 public class SettingActivity extends Activity {
+	private SettingClickView scv_toast_style;
+	private String[] mToastStyleDes;
+	private int mToastStyle;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,6 +28,38 @@ public class SettingActivity extends Activity {
 
 		initUpdate();
 		initAddress();
+		initToastStyle();
+	}
+
+	private void initToastStyle() {
+		scv_toast_style = (SettingClickView) findViewById(R.id.scv_toast_style);
+		//话述(产品)
+		scv_toast_style.setTitle("设置归属地显示风格");
+		//1,创建描述文字所在的string类型数组
+		mToastStyleDes = new String[]{"透明","橙色","蓝色","灰色","绿色"};
+		//2,SP获取吐司显示样式的索引值(int),用于获取描述文字
+		mToastStyle = SpUtil.getInt(getApplicationContext(), ConstantValue.TOAST_STYLE, 0);
+		//3,通过索引,获取字符串数组中的文字,显示给描述内容控件
+		scv_toast_style.setDes(mToastStyleDes[mToastStyle]);
+		//4,监听点击事件,弹出对话框
+		scv_toast_style.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//5,显示吐司样式的对话框
+				showToastStyleDialog();
+				
+			}
+		});
+		
+	}
+
+	/**
+	 * 创建选中显示样式的对话框
+	 */
+	protected void showToastStyleDialog() {
+		Builder builder = new AlertDialog.Builder(this);
+		
 	}
 
 	/**

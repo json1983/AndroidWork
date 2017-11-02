@@ -4,6 +4,7 @@
 package com.itheima.mobilesafe74.service;
 
 import com.itheima.mobilesafe74.R;
+import com.itheima.mobilesafe74.engine.AddressDao;
 import com.itheima.mobilesafe74.utils.ConstantValue;
 import com.itheima.mobilesafe74.utils.SpUtil;
 
@@ -11,6 +12,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Handler;
 import android.os.IBinder;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -38,11 +40,16 @@ public class AddressService extends Service {
 	private TextView tv_toast;
 	protected int mScreenHeight;
 	protected int mScreenWidth;
+	private int[] mDrawableIds;
+	protected String mAddress;
+	private Handler mHandler=new Handler(){
+		public void handleMessage(android.os.Message msg) {
+			tv_toast.setText(mAddress);
+		};
+	};
 
 	@Override
 	public void onCreate() {
-		// TODO Auto-generated method stub
-		super.onCreate();
 		// 第一次开启服务以后,就需要去管理吐司的显示
 		// 电话状态的监听(服务开启的时候,需要去做监听,关闭的时候电话状态就不需要监听)
 		// 1,电话管理者对象
@@ -52,6 +59,9 @@ public class AddressService extends Service {
 		mTM.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
 		// 获取窗体对象
 		mWM = (WindowManager) getSystemService(WINDOW_SERVICE);
+		mScreenWidth = mWM.getDefaultDisplay().getWidth();
+		mScreenHeight = mWM.getDefaultDisplay().getHeight();
+		super.onCreate();
 	}
 
 	class MyPhoneStateListener extends PhoneStateListener {
@@ -64,7 +74,7 @@ public class AddressService extends Service {
 				Log.i(tag, "挂断电话,空闲了.......................");
 				//挂断电话的时候窗体需要移除吐司
 				if (mWM!=null && mViewToast!=null) {
-					mWM.removeView(mViewToast)
+					mWM.removeView(mViewToast);
 				}
 				break;
 			case TelephonyManager.CALL_STATE_OFFHOOK:
@@ -82,12 +92,6 @@ public class AddressService extends Service {
 			super.onCallStateChanged(state, incomingNumber);
 		}
 
-	}
-
-	@Override
-	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public void showToast(String incomingNumber) {
@@ -159,6 +163,45 @@ public class AddressService extends Service {
 				return true;
 			}
 		});
+		//读取sp中存储吐司位置的x,y坐标值
+		// params.x为吐司左上角的x的坐标
+		params.x =SpUtil.getInt(getApplicationContext(), ConstantValue.LOCATION_X, 0);
+		// params.y为吐司左上角的y的坐标
+        params.y = SpUtil.getInt(getApplicationContext(), ConstantValue.LOCATION_Y, 0);
+        //从sp中获取色值文字的索引,匹配图片,用作展示
+        mDrawableIds = new int[]{
+        		R.drawable.call_locate_white,
+        		R.drawable.call_locate_orange,
+        		R.drawable.call_locate_blue,
+        		R.drawable.call_locate_gray,
+        		R.drawable.call_locate_green};
+        int toastStyleIndex = SpUtil.getInt(getApplicationContext(), ConstantValue.TOAST_STYLE, 0);
+        tv_toast.setBackgroundResource(mDrawableIds[toastStyleIndex]);
+      //在窗体上挂在一个view(权限)
+        mWM.addView(mViewToast, params);
+        //获取到了来电号码以后,需要做来电号码查询
+        query(incomingNumber);
+	}
+
+	private void query(final String incomingNumber) {
+		new Thread(){
+			public void run() {
+				mAddress = AddressDao.getAddress(incomingNumber);
+				mHandler.sendEmptyMessage(0);
+			};
+		}.start();
 		
+	}
+	@Override
+	public IBinder onBind(Intent intent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void onDestroy() {
+		if (mTM!=null && mPhoneStateListener!=null) {
+			mTM.listen(mPhoneStateListener, PhoneStateListener.LISTEN_NONE);
+		}
+		super.onDestroy();
 	}
 }

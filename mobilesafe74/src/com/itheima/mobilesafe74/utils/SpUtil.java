@@ -97,7 +97,7 @@ public class SpUtil {
 	 * @param defValue	没有此节点默认值
 	 * @return		默认值或者此节点读取到的结果
 	 */
-	public static int getBoolean(Context ctx,String key,int defValue) {
+	public static int getInt(Context ctx,String key,int defValue) {
 		if (sp==null) {
 			sp=ctx.getSharedPreferences("config", Context.MODE_PRIVATE);
 		}
