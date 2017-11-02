@@ -3,6 +3,7 @@ package com.itheima.mobilesafe74.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.AvoidXfermode.Mode;
+import android.inputmethodservice.Keyboard.Key;
 
 public class SpUtil {
 	private static SharedPreferences sp;
@@ -74,6 +75,34 @@ public class SpUtil {
 		}
 		sp.edit().remove(key).commit();
 		
+	}
+	/**
+	 * 写入int变量至sp中
+	 * @param ctx	上下文环境
+	 * @param key	存储节点名称
+	 * @param value	存储节点的值 int
+	 */
+	public static void putInt(Context ctx, String key,
+			int value) {
+		if(sp == null){
+			sp = ctx.getSharedPreferences("config", Context.MODE_PRIVATE);
+		}
+		sp.edit().putInt(key, value).commit();
+		
+	}
+	/**
+	 * 读取int标示从sp中
+	 * @param ctx	上下文环境
+	 * @param key	存储节点名称
+	 * @param defValue	没有此节点默认值
+	 * @return		默认值或者此节点读取到的结果
+	 */
+	public static int getBoolean(Context ctx,String key,int defValue) {
+		if (sp==null) {
+			sp=ctx.getSharedPreferences("config", Context.MODE_PRIVATE);
+		}
+		
+		return sp.getInt(key, defValue);
 	}
 	
 

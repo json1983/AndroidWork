@@ -55,11 +55,11 @@
         </activity>
         <activity android:name="com.itheima.mobilesafe74.activity.AToolActivity" >
         </activity>
-		
-		<activity android:name="com.itheima.mobilesafe74.activity.QueryAddressActivity"></activity>
-
+        <activity android:name="com.itheima.mobilesafe74.activity.QueryAddressActivity" >
+        </activity>
         <activity android:name="com.itheima.mobilesafe74.activity.LockScrennActivity" >
         </activity>
+
         <receiver android:name="com.itheima.mobilesafe74.receiver.BootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -72,7 +72,6 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name="com.itheima.mobilesafe74.receiver.MyDeviceAdminReceiver"
             android:description="@string/sample_device_admin_description"
@@ -86,7 +85,10 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
-         <service android:name="com.itheima.mobilesafe74.service.LocationService" >
+
+        <service android:name="com.itheima.mobilesafe74.service.LocationService" >
+        </service>
+        <service android:name="com.itheima.mobilesafe74.service.AddressService">
         </service>
     </application>
 

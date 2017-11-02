@@ -30,5 +30,13 @@ public class ConstantValue {
 	 * 防盗总开关KEY
 	 */
 	public static final String OPEN_SECURITY = "open_security";
+	/**
+	 * 来电显示吐司坐标X
+	 */
+	public static final String LOCATION_X = "location_x";
+	/**
+	 * 来电显示吐司坐标y
+	 */
+	public static final String LOCATION_Y = "location_y";
 
 }

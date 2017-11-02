@@ -59,59 +59,68 @@ containing a value of this type.
         public static final int bind=0x7f020000;
         public static final int btn_green_normal=0x7f020001;
         public static final int btn_green_pressed=0x7f020002;
-        public static final int function_greenbutton_normal=0x7f020003;
-        public static final int function_greenbutton_pressed=0x7f020004;
-        public static final int home_apps=0x7f020005;
-        public static final int home_callmsgsafe=0x7f020006;
-        public static final int home_netmanager=0x7f020007;
-        public static final int home_safe=0x7f020008;
-        public static final int home_settings=0x7f020009;
-        public static final int home_sysoptimize=0x7f02000a;
-        public static final int home_taskmanager=0x7f02000b;
-        public static final int home_tools=0x7f02000c;
-        public static final int home_trojan=0x7f02000d;
-        public static final int ic_launcher=0x7f02000e;
-        public static final int launcher_bg=0x7f02000f;
-        public static final int listview_divider=0x7f020010;
-        public static final int lock=0x7f020011;
-        public static final int logo=0x7f020012;
-        public static final int next=0x7f020013;
-        public static final int one=0x7f020014;
-        public static final int phone=0x7f020015;
-        public static final int previous=0x7f020016;
-        public static final int selector_atool_item_bg=0x7f020017;
-        public static final int selector_next_btn_bg=0x7f020018;
-        public static final int selector_number_btn_bg=0x7f020019;
-        public static final int selector_reset_setup_bg=0x7f02001a;
-        public static final int setup1=0x7f02001b;
-        public static final int unlock=0x7f02001c;
+        public static final int call_locate_blue=0x7f020003;
+        public static final int call_locate_gray=0x7f020004;
+        public static final int call_locate_green=0x7f020005;
+        public static final int call_locate_orange=0x7f020006;
+        public static final int call_locate_white=0x7f020007;
+        public static final int drag=0x7f020008;
+        public static final int function_greenbutton_normal=0x7f020009;
+        public static final int function_greenbutton_pressed=0x7f02000a;
+        public static final int home_apps=0x7f02000b;
+        public static final int home_callmsgsafe=0x7f02000c;
+        public static final int home_netmanager=0x7f02000d;
+        public static final int home_safe=0x7f02000e;
+        public static final int home_settings=0x7f02000f;
+        public static final int home_sysoptimize=0x7f020010;
+        public static final int home_taskmanager=0x7f020011;
+        public static final int home_tools=0x7f020012;
+        public static final int home_trojan=0x7f020013;
+        public static final int ic_launcher=0x7f020014;
+        public static final int jiantou1_pressed=0x7f020015;
+        public static final int launcher_bg=0x7f020016;
+        public static final int listview_divider=0x7f020017;
+        public static final int lock=0x7f020018;
+        public static final int logo=0x7f020019;
+        public static final int next=0x7f02001a;
+        public static final int one=0x7f02001b;
+        public static final int phone=0x7f02001c;
+        public static final int previous=0x7f02001d;
+        public static final int selector_atool_item_bg=0x7f02001e;
+        public static final int selector_next_btn_bg=0x7f02001f;
+        public static final int selector_number_btn_bg=0x7f020020;
+        public static final int selector_reset_setup_bg=0x7f020021;
+        public static final int setup1=0x7f020022;
+        public static final int unlock=0x7f020023;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c0018;
-        public static final int bt_cancel=0x7f0c0012;
+        public static final int action_settings=0x7f0c001a;
+        public static final int bt_cancel=0x7f0c0013;
         public static final int bt_query=0x7f0c0004;
-        public static final int bt_select_number=0x7f0c0009;
-        public static final int bt_submit=0x7f0c0011;
-        public static final int cb_box=0x7f0c000a;
-        public static final int et_confirm_psd=0x7f0c0010;
+        public static final int bt_select_number=0x7f0c000a;
+        public static final int bt_submit=0x7f0c0012;
+        public static final int cb_box=0x7f0c000b;
+        public static final int et_confirm_psd=0x7f0c0011;
         public static final int et_phone=0x7f0c0003;
-        public static final int et_phone_number=0x7f0c0008;
-        public static final int et_set_psd=0x7f0c0013;
+        public static final int et_phone_number=0x7f0c0009;
+        public static final int et_set_psd=0x7f0c0014;
         public static final int gv_home=0x7f0c0002;
-        public static final int iv_icon=0x7f0c0014;
-        public static final int iv_lock=0x7f0c000c;
+        public static final int iv_icon=0x7f0c0015;
+        public static final int iv_lock=0x7f0c000d;
         public static final int lv_contact=0x7f0c0001;
-        public static final int rl_root=0x7f0c000e;
-        public static final int siv_sim_bound=0x7f0c0007;
+        public static final int rl_root=0x7f0c000f;
+        public static final int siv_address=0x7f0c0007;
+        public static final int siv_sim_bound=0x7f0c0008;
         public static final int siv_update=0x7f0c0006;
-        public static final int tv_des=0x7f0c0017;
-        public static final int tv_name=0x7f0c0016;
-        public static final int tv_phone=0x7f0c000b;
+        public static final int tv_des=0x7f0c0018;
+        public static final int tv_name=0x7f0c0017;
+        public static final int tv_phone=0x7f0c000c;
         public static final int tv_query_phone_address=0x7f0c0000;
         public static final int tv_query_result=0x7f0c0005;
-        public static final int tv_reset_setup=0x7f0c000d;
-        public static final int tv_title=0x7f0c0015;
-        public static final int tv_version_name=0x7f0c000f;
+        public static final int tv_reset_setup=0x7f0c000e;
+        public static final int tv_title=0x7f0c0016;
+        public static final int tv_toast=0x7f0c0019;
+        public static final int tv_version_name=0x7f0c0010;
     }
     public static final class layout {
         public static final int activity_atool=0x7f030000;
@@ -131,6 +140,7 @@ containing a value of this type.
         public static final int gridview_item=0x7f03000e;
         public static final int listview_contact_item=0x7f03000f;
         public static final int setting_item_view=0x7f030010;
+        public static final int toast_view=0x7f030011;
     }
     public static final class menu {
         public static final int splash=0x7f0b0000;
@@ -220,7 +230,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:desoff
+          @attr name com.itheima.mobilesafe74:desoff
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_desoff = 1;
         /**
@@ -234,7 +244,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:deson
+          @attr name com.itheima.mobilesafe74:deson
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_deson = 2;
         /**
@@ -248,7 +258,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:destitle
+          @attr name com.itheima.mobilesafe74:destitle
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_destitle = 0;
     };

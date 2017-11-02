@@ -61,4 +61,15 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content">
 	</com.itheima.mobilesafe74.view.SettingItemView> -->
+	 <!-- 是否显示电话归属地-->
+	 <com.itheima.mobilesafe74.view.SettingItemView 
+	    xmlns:mobilesafe="http://schemas.android.com/apk/res/com.itheima.mobilesafe74"
+	    android:id="@+id/siv_address"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    mobilesafe:destitle="电话归属地的显示设置"
+	    mobilesafe:desoff="归属地的显示已关闭"
+	    mobilesafe:deson="归属地的显示已开启" >
+	     
+	 </com.itheima.mobilesafe74.view.SettingItemView>
 </LinearLayout>
