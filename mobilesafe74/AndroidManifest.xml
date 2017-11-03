@@ -62,7 +62,7 @@
         </activity>
         <activity android:name="com.itheima.mobilesafe74.activity.LockScrennActivity" >
         </activity>
-
+		<activity android:name="com.itheima.mobilesafe74.activity.ToastLocationActivity"></activity>
         <receiver android:name="com.itheima.mobilesafe74.receiver.BootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

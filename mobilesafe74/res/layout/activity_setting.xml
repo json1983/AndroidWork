@@ -78,6 +78,7 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content">
 	</com.itheima.mobilesafe74.view.SettingClickView>
+	<!--拖动记录吐司位置,及双击居中记录吐司显示位置 -->
 	<com.itheima.mobilesafe74.view.SettingClickView
 	    android:id="@+id/scv_location"
 	    android:layout_width="match_parent"

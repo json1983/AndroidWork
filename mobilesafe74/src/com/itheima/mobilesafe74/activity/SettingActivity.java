@@ -11,6 +11,7 @@ import com.itheima.mobilesafe74.view.SettingItemView;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,8 +30,28 @@ public class SettingActivity extends Activity {
 		initUpdate();
 		initAddress();
 		initToastStyle();
+		initLocation();
+	}
+	/**
+	 * 双击居中view所在屏幕位置的处理方法
+	 */
+	private void initLocation() {
+		SettingClickView scv_location = (SettingClickView) findViewById(R.id.scv_location);
+		scv_location.setTitle("归属地提示框的位置");
+		scv_location.setDes("设置归属地提示框的位置");
+		scv_location.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), ToastLocationActivity.class));
+				
+			}
+		});
 	}
 
+	/**
+	 * 设置吐司样式
+	 */
 	private void initToastStyle() {
 		scv_toast_style = (SettingClickView) findViewById(R.id.scv_toast_style);
 		//话述(产品)
@@ -59,7 +80,33 @@ public class SettingActivity extends Activity {
 	 */
 	protected void showToastStyleDialog() {
 		Builder builder = new AlertDialog.Builder(this);
-		
+		builder.setIcon(R.drawable.ic_launcher);
+		builder.setTitle("请选择归属地样式");
+		//选择单个条目事件监听
+				/*
+				 * 1:string类型的数组描述颜色文字数组
+				 * 2:弹出对画框的时候的选中条目索引值
+				 * 3:点击某一个条目后触发的点击事件
+				 * */
+		builder.setSingleChoiceItems(mToastStyleDes, mToastStyle, new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				//(1,记录选中的索引值,2,关闭对话框,3,显示选中色值文字)
+				SpUtil.putInt(getApplicationContext(),ConstantValue.TOAST_STYLE, which);
+				dialog.dismiss();
+				scv_toast_style.setDes(mToastStyleDes[which]);
+			}
+		});
+		builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				
+			}
+		});
+		builder.show();
 	}
 
 	/**
