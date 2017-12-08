@@ -31,6 +31,32 @@ public class SettingActivity extends Activity {
 		initAddress();
 		initToastStyle();
 		initLocation();
+		initBlacknumber();
+	}
+	
+	/**
+	 * 拦截黑名单短信电话
+	 */
+	private void initBlacknumber() {
+		final SettingItemView siv_blacknumber = (SettingItemView) findViewById(R.id.siv_blacknumber);
+		boolean isRunning = ServiceUtil.isRunning(getApplicationContext(), "com.itheima.mobilesafe74.service.BlackNumberService");
+		siv_blacknumber.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				boolean isCheck = siv_blacknumber.isCheck();
+				siv_blacknumber.setCheck(!isCheck);
+				if (!isCheck) {
+					//开启服务
+					
+					startService(new Intent(getApplicationContext(), BlackNumberService.class));
+				}else {
+					//关闭服务
+					stopService(new Intent(getApplicationContext(), BlackNumberService.class));
+				}
+				
+			}
+		});
 	}
 	/**
 	 * 双击居中view所在屏幕位置的处理方法

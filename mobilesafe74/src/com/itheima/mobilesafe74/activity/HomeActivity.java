@@ -70,6 +70,7 @@ public class HomeActivity extends Activity {
 					startActivity(new Intent(getApplicationContext(), AToolActivity.class));
 					break;
 				case 8:
+					//设置中心页面
 					Intent intent = new Intent(getApplicationContext(),SettingActivity.class);
 					startActivity(intent);
 					break;
