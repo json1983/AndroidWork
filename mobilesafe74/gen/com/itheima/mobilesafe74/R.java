@@ -238,7 +238,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:desoff
+          @attr name android:desoff
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_desoff = 1;
         /**
@@ -252,7 +252,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:deson
+          @attr name android:deson
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_deson = 2;
         /**
@@ -266,7 +266,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.itheima.mobilesafe74:destitle
+          @attr name android:destitle
         */
         public static final int com_itheima_mobilesafe74_view_SettingItemView_destitle = 0;
     };
