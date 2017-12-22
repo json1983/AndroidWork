@@ -3,6 +3,7 @@ package com.itheima.mobilesafe74.activity;
 import com.itheima.mobilesafe74.R;
 import com.itheima.mobilesafe74.service.AddressService;
 import com.itheima.mobilesafe74.service.BlackNumberService;
+import com.itheima.mobilesafe74.service.WatchDogService;
 import com.itheima.mobilesafe74.utils.ConstantValue;
 import com.itheima.mobilesafe74.utils.ServiceUtil;
 import com.itheima.mobilesafe74.utils.SpUtil;
@@ -33,14 +34,43 @@ public class SettingActivity extends Activity {
 		initToastStyle();
 		initLocation();
 		initBlacknumber();
+		initAppLock();
 	}
 	
+	/**
+	 * 初始化程序锁方法
+	 */
+	private void initAppLock() {
+		// TODO Auto-generated method stub
+		final SettingItemView siv_app_lock = (SettingItemView) findViewById(R.id.siv_app_lock);
+		boolean isRunning = ServiceUtil.isRunning(getApplicationContext(), "com.itheima.mobilesafe74.service.WatchDogService");
+		siv_app_lock.setCheck(isRunning);
+		siv_app_lock.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				boolean isCheck=siv_app_lock.isCheck();
+				siv_app_lock.setCheck(!isCheck);
+				if (!isCheck) {
+					//开启服务
+					startService(new Intent(getApplicationContext(), WatchDogService.class));
+				}else {
+					//关闭服务
+					stopService(new Intent(getApplicationContext(), WatchDogService.class));
+				}
+			}
+		});
+		
+	}
+
 	/**
 	 * 拦截黑名单短信电话
 	 */
 	private void initBlacknumber() {
 		final SettingItemView siv_blacknumber = (SettingItemView) findViewById(R.id.siv_blacknumber);
 		boolean isRunning = ServiceUtil.isRunning(getApplicationContext(), "com.itheima.mobilesafe74.service.BlackNumberService");
+		siv_blacknumber.setCheck(isRunning);
 		siv_blacknumber.setOnClickListener(new OnClickListener() {
 			
 			@Override

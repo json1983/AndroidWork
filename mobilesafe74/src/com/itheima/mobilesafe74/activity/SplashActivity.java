@@ -117,6 +117,8 @@ public class SplashActivity extends Activity {
 	private void initDB() {
 		// 1,归属地数据拷贝过程
 		initAddressDB("address.db");
+		// 2,常用号码数据库拷贝过程
+		initAddressDB("commonnum.db");
 
 	}
 
@@ -141,31 +143,31 @@ public class SplashActivity extends Activity {
 			stream = getAssets().open(dbName);
 			// 3,将读取的内容写入到指定文件夹的文件中去
 			fos = new FileOutputStream(file);
-			//4,每次的读取内容大小
+			// 4,每次的读取内容大小
 			byte[] bs = new byte[1024];
 			int temp = -1;
-			while ((temp=stream.read(bs))!=-1) {
+			while ((temp = stream.read(bs)) != -1) {
 				fos.write(bs, 0, temp);
-				
+
 			}
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		} finally {
 			try {
-				if (fos!=null) {
+				if (fos != null) {
 					fos.close();
 				}
-				if (stream!=null) {
+				if (stream != null) {
 					stream.close();
 				}
-				
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
 	}
 
@@ -324,14 +326,14 @@ public class SplashActivity extends Activity {
 		/*
 		 * 更新版本的版本名称 新版本的描述信息 服务器版本号 新版本apk下载地址
 		 */
-		if(SpUtil.getBoolean(this, ConstantValue.OPEN_UPDATE, false)){
+		if (SpUtil.getBoolean(this, ConstantValue.OPEN_UPDATE, false)) {
 			checkVersion();
-		}else{
-			//直接进入应用程序主界面
-//			enterHome();
-			//消息机制
-//			mHandler.sendMessageDelayed(msg, 4000);
-			//在发送消息4秒后去处理,ENTER_HOME状态码指向的消息
+		} else {
+			// 直接进入应用程序主界面
+			// enterHome();
+			// 消息机制
+			// mHandler.sendMessageDelayed(msg, 4000);
+			// 在发送消息4秒后去处理,ENTER_HOME状态码指向的消息
 			mHandler.sendEmptyMessageDelayed(ENTER_HOME, 4000);
 		}
 	}

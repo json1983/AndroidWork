@@ -61,8 +61,12 @@ public class HomeActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
 				switch (position) {
 				case 0:
-					//开启对话框
+					//开启对话框(手机防盗,设置密码,确认密码跳转)
 					showDialog();
+					break;
+				case 1:
+					//通信卫士(黑名单管理及黑名单添加)
+					startActivity(new Intent(getApplicationContext(), BlackNumberActivity.class));
 					break;
 				case 7:
 					//高级工具页面

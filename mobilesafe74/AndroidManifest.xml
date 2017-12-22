@@ -22,10 +22,18 @@
     <!-- //获取粗略坐标的权限(网络定位时使用) -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 使手机震动 -->
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
     <!-- 在窗体上挂在view的权限 -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 去电广播监听的权限 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <!-- 拦截电话需要用到的权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -64,10 +72,15 @@
         </activity>
         <activity android:name="com.itheima.mobilesafe74.activity.LockScrennActivity" >
         </activity>
-		<activity android:name="com.itheima.mobilesafe74.activity.ToastLocationActivity"
-		    android:theme="@android:style/Theme.Translucent.NoTitleBar">
-		    
-		</activity>
+        <activity
+            android:name="com.itheima.mobilesafe74.activity.ToastLocationActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.BlackNumberActivity"></activity>
+        <activity android:name="com.itheima.mobilesafe74.activity.AppManagerActivity" >
+        </activity>
+        
+
         <receiver android:name="com.itheima.mobilesafe74.receiver.BootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -96,9 +109,12 @@
 
         <service android:name="com.itheima.mobilesafe74.service.LocationService" >
         </service>
-        <service android:name="com.itheima.mobilesafe74.service.AddressService">
+        <service android:name="com.itheima.mobilesafe74.service.AddressService" >
         </service>
-        <service android:name="com.itheima.mobilesafe74.service.BlackNumberService"></service>
+        <service android:name="com.itheima.mobilesafe74.service.BlackNumberService" >
+        </service>
+        <service android:name="com.itheima.mobilesafe74.service.WatchDogService" >
+        </service>
     </application>
 
 </manifest>
